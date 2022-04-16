@@ -1,7 +1,7 @@
 import React from 'react';
 import First from './components/First';
 import Second from './components/Second';
-import Destruct from './components/Destruct';
+import Destruct, {Category} from './components/Destruct';
 import State from './components/State';
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
 
         <First/>
         <Second name="manoel"/>
-        <Destruct title='titulo' content="content" comentsQty={10} tags={['19', '20']}/>
+        <Destruct title='titulo' content="content" comentsQty={10} tags={['19', '20']} categoria={Category.TS}/>
         <State/>
       </header>
     </div>
