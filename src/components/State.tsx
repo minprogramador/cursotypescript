@@ -1,11 +1,16 @@
-import React, {useState} from 'react';
+import React, {useState, ChangeEvent} from 'react';
 
 const State = () => {
-    const [text, setText] = useState("testando o hook");
+    const [text, setText] = useState<string | null>("testando o hook");
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setText(e.target.value);
+    };
 
     return (
         <div>
             <p>O texto é {text}</p>
+            <input type="text" onChange={handleChange}/>
         </div>
     );
 };
