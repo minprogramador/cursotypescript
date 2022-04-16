@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import First from './components/First';
 import Second from './components/Second';
 import Destruct, {Category} from './components/Destruct';
@@ -7,7 +7,23 @@ import State from './components/State';
 type textOrNull = string | null;
 type fixed = "isso" | "ou" | "aquilo";
 
+interface IContext {
+  language: string,
+  framework: string,
+  projects: number
+}
+
+const AppContext = createContext<IContext | null>(null);
+
 function App() {
+  
+  const contextValue:IContext = {
+    language: 'javascript',
+    framework: 'express',
+    projects: 0
+  };
+
+  
   const name: string = "demo";
   const age: number = 30;
   const isWorking: boolean = true;
@@ -20,7 +36,11 @@ function App() {
 
   const textandofixed: fixed = "isso";
 
+
+
+
   return (
+    <AppContext.Provider value={contextValue}>
     <div className="App">
       <header className="App-header">
         <p>
@@ -37,6 +57,7 @@ function App() {
         {textandofixed}
       </header>
     </div>
+    </AppContext.Provider>
   );
 }
 
