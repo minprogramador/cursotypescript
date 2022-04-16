@@ -3,6 +3,7 @@ import First from './components/First';
 import Second from './components/Second';
 import Destruct, {Category} from './components/Destruct';
 import State from './components/State';
+import Context from './components/Context';
 
 type textOrNull = string | null;
 type fixed = "isso" | "ou" | "aquilo";
@@ -13,7 +14,7 @@ interface IContext {
   projects: number
 }
 
-const AppContext = createContext<IContext | null>(null);
+export const AppContext = createContext<IContext | null>(null);
 
 function App() {
   
@@ -56,6 +57,8 @@ function App() {
         {mytext}
         {textandofixed}
       </header>
+
+      <Context/>
     </div>
     </AppContext.Provider>
   );
