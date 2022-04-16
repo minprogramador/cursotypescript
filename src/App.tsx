@@ -1,23 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import First from './components/First';
+import Second from './components/Second';
+import Destruct from './components/Destruct';
+import State from './components/State';
 
 function App() {
+  const name: string = "demo";
+  const age: number = 30;
+  const isWorking: boolean = true;
+
+  const func = (name: string): string => {
+    return `ola ${name}`;
+  };
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+         {name}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {isWorking && <p>trabalhando...</p>}
+        {func(name)}
+
+        <First/>
+        <Second name="manoel"/>
+        <Destruct title='titulo' content="content" comentsQty={10} tags={['19', '20']}/>
+        <State/>
       </header>
     </div>
   );
